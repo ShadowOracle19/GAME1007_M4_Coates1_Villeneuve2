@@ -17,4 +17,6 @@ public class ButtonFunctions : MonoBehaviour
             gamePanel.SetActive(true);
         }
     }
+
+   
 }
