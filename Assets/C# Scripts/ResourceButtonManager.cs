@@ -4,44 +4,43 @@ using UnityEngine;
 using TMPro;
 public class ResourceButtonManager : MonoBehaviour
 {
-    public TextMeshProUGUI[] resourceText;
+    public GameObject[] resourceText;
     public TextMeshProUGUI scanCountText;
+    public TextMeshProUGUI modeText;
+    public TextMeshProUGUI resourcesCollected;
+    public int resources;
+    public bool isInScannerMode, isInExcavationMode;
     public int[] ResourceCount = new int[20];
-    int tempNum, i = 0;
+    int tempNum, i = 0, currentIndex = 0;
     public int scansLeft = 5;
     int scans = 5;
     public bool ableToScan = true;
-    // Start is called before the first frame update
+
     void Awake()
     {
-        //Debug.Log(resourceText.Length);
-        //for (int i = 0; i < resourceText.Length; i++)
-        //{
-
-        //    ResourceCount[i] = (int)Random.Range(1000f, 5000f);
-        //    Debug.Log(ResourceCount[i]);
-        //    resourceText[i].SetText(ResourceCount[i].ToString());
-
-        //}
-        
-        foreach (var text in resourceText)
-        {
-            Debug.Log(i);
-            tempNum = Random.Range(1000, 5000);
-            text.SetText(tempNum.ToString());
-            ResourceCount[i] = tempNum;
-            i += 1;
-        }
+        InitializeGame();
     }
 
-    // Update is called once per frame
     void Update()
     {
         scanCountText.SetText("Scans Left: " + scans);
+        
+        if(isInScannerMode)
+        {
+            modeText.SetText("Scanner");
+        }
+        else if(isInExcavationMode)
+        {
+            modeText.SetText("Excavation");
+
+        }
     }
 
-    public void ScanButton()
+    public void ScanButton(int resourceAvalible)
     {
+        if (isInScannerMode == false)
+            return;
+
         if(scansLeft <= 1)
         {
             ableToScan = false;
@@ -54,5 +53,31 @@ public class ResourceButtonManager : MonoBehaviour
             scans -= 1;
         }
         
+    }
+
+    public void ExcavateButton(int resourceAvalible)
+    {
+        //foreach (var text in resourceText)
+        //{
+        //    ResourceCount[currentIndex] = ResourceCount[currentIndex] / 2;
+        //    text.SetText(ResourceCount[currentIndex].ToString());
+        //    currentIndex += 1;
+        //}
+        //currentIndex = 0;
+        resources += resourceAvalible;
+        resourcesCollected.SetText(resources.ToString());
+
+        foreach (var _resource in resourceText)
+        {
+            _resource.GetComponent<ScanFunction>().resourceAvaliable = _resource.GetComponent<ScanFunction>().resourceAvaliable / 2;
+        }
+    }
+
+    public void InitializeGame()
+    {
+        scansLeft = 5;
+        scans = 5;
+        ableToScan = true;
+        isInExcavationMode = true;
     }
 }
