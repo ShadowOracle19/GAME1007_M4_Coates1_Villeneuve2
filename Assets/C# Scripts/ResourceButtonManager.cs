@@ -4,7 +4,8 @@ using UnityEngine;
 using TMPro;
 public class ResourceButtonManager : MonoBehaviour
 {
-    public GameObject[] resourceText;
+    public GameObject resourceButton;
+    public Transform panelParent;
     public TextMeshProUGUI scanCountText;
     public TextMeshProUGUI modeText;
     public TextMeshProUGUI resourcesCollected;
@@ -67,14 +68,20 @@ public class ResourceButtonManager : MonoBehaviour
         resources += resourceAvalible;
         resourcesCollected.SetText(resources.ToString());
 
-        foreach (var _resource in resourceText)
-        {
-            _resource.GetComponent<ScanFunction>().resourceAvaliable = _resource.GetComponent<ScanFunction>().resourceAvaliable / 2;
-        }
+        //foreach (var _resource in resourceText)
+        //{
+        //    _resource.GetComponent<ScanFunction>().resourceAvaliable = _resource.GetComponent<ScanFunction>().resourceAvaliable / 2;
+        //}
     }
 
     public void InitializeGame()
     {
+        for (int i = 0; i <= 1022; i++)
+        {
+            Instantiate(resourceButton, panelParent);
+            Debug.Log(i);
+        }
+        
         scansLeft = 5;
         scans = 5;
         ableToScan = true;
