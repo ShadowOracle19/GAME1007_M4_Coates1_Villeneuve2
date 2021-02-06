@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 public class ScanFunction : MonoBehaviour
 {
+    public Image image;
+    public GameObject hider;
     public TextMeshProUGUI numText;
     public ResourceButtonManager RBM;
     public int scanCount;
@@ -11,13 +14,39 @@ public class ScanFunction : MonoBehaviour
     private void OnEnable()
     {
         numText.enabled = false;
+        hider.SetActive(true);
         resourceAvaliable = Random.Range(1000, 5000);
         numText.SetText(resourceAvaliable.ToString());
+
+        if(resourceAvaliable <= 1500)
+        {
+            image.color = Color.red;
+        }
+        else if(resourceAvaliable <= 3000)
+        {
+            image.color = Color.yellow;
+        }
+        else
+        {
+            image.color = Color.green;
+        }
     }
 
     private void Update()
     {
         numText.SetText(resourceAvaliable.ToString());
+        if (resourceAvaliable <= 1500)
+        {
+            image.color = Color.red;
+        }
+        else if (resourceAvaliable <= 3000)
+        {
+            image.color = Color.yellow;
+        }
+        else
+        {
+            image.color = Color.green;
+        }
     }
     public void onButtonClick()
     {
@@ -25,7 +54,7 @@ public class ScanFunction : MonoBehaviour
         {
             if (RBM.ableToScan)
             {
-                numText.enabled = true;
+                hider.SetActive(false);
                 RBM.ScanButton(resourceAvaliable);
 
             }

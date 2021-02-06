@@ -652,7 +652,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.1281, y: 18.5892}
+  m_AnchoredPosition: {x: 184, y: -28}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &868506897
@@ -714,7 +714,7 @@ MonoBehaviour:
   m_StartCorner: 1
   m_StartAxis: 0
   m_CellSize: {x: 25.6, y: 12.25}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 3, y: 4}
   m_Constraint: 1
   m_ConstraintCount: 32
 --- !u!1 &930759236
@@ -1313,6 +1313,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7586532321598016036, guid: 8c8c8bfb94e142c4e999cc069667ff90, type: 3}
   m_PrefabInstance: {fileID: 4475452263971776183}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1448231050 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2745320122619609636, guid: 8c8c8bfb94e142c4e999cc069667ff90, type: 3}
+  m_PrefabInstance: {fileID: 4475452263971776183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448231047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1572191729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,6 +1862,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819992061}
   m_CullTransparentMesh: 1
+--- !u!1 &2017818415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3182408341338541891, guid: 8c8c8bfb94e142c4e999cc069667ff90, type: 3}
+  m_PrefabInstance: {fileID: 4475452263971776183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2029884344
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,6 +2310,14 @@ PrefabInstance:
       propertyPath: RBM
       value: 
       objectReference: {fileID: 349489341}
+    - target: {fileID: 5342699586602107960, guid: 8c8c8bfb94e142c4e999cc069667ff90, type: 3}
+      propertyPath: hider
+      value: 
+      objectReference: {fileID: 2017818415}
+    - target: {fileID: 5342699586602107960, guid: 8c8c8bfb94e142c4e999cc069667ff90, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 1448231050}
     - target: {fileID: 7586532321598016036, guid: 8c8c8bfb94e142c4e999cc069667ff90, type: 3}
       propertyPath: m_Name
       value: ResourceButton
