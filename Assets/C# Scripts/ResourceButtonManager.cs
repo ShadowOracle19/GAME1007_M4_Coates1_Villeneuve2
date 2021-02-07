@@ -7,6 +7,7 @@ public class ResourceButtonManager : MonoBehaviour
     public GameObject resourceButton;
     public Transform panelParent;   
     public TextMeshProUGUI scanCountText;
+    //public TextMeshProUGUI ExcavCountText;
     public TextMeshProUGUI modeText;
     public TextMeshProUGUI resourcesCollected;
     public int resources;
@@ -15,6 +16,8 @@ public class ResourceButtonManager : MonoBehaviour
     int tempNum, i = 0, currentIndex = 0;
     public int scansLeft = 5;
     int scans = 5;
+    public int excavLeft = 3;
+    int excavs = 3;
     public bool ableToScan = true;
 
     void Awake()
@@ -25,8 +28,10 @@ public class ResourceButtonManager : MonoBehaviour
     void Update()
     {
         scanCountText.SetText("Scans Left: " + scans);
-        
-        if(isInScannerMode)
+        //ExcavCountText.SetText("Excavations Left: " + excavLeft);
+
+
+        if (isInScannerMode)
         {
             modeText.SetText("Scanner");
         }
@@ -65,9 +70,12 @@ public class ResourceButtonManager : MonoBehaviour
         //    currentIndex += 1;
         //}
         //currentIndex = 0;
-        resources += resourceAvalible;
-        resourcesCollected.SetText(resources.ToString());
-
+        if (excavLeft > 0)
+        {
+            resources += resourceAvalible;
+            resourcesCollected.SetText(resources.ToString());
+            excavLeft--;
+        }
         
             //_resource.GetComponent<ScanFunction>().resourceAvaliable = _resource.GetComponent<ScanFunction>().resourceAvaliable / 2;
         
@@ -82,6 +90,8 @@ public class ResourceButtonManager : MonoBehaviour
         
         scansLeft = 5;
         scans = 5;
+        excavLeft = 3;
+        excavs = 3;
         ableToScan = true;
         isInExcavationMode = true;
     }

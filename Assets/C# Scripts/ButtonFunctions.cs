@@ -21,7 +21,7 @@ public class ButtonFunctions : MonoBehaviour
         else
         {
             gamePanel.SetActive(true);
-            resourceButtonManager.InitializeGame();
+            //resourceButtonManager.InitializeGame();
 
         }
     }

@@ -3,7 +3,13 @@ guid: 0757ad8a0af80e64eac501fa042727a3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - resourceButton: {instanceID: 0}
+  - panelParent: {instanceID: 0}
+  - scanCountText: {instanceID: 0}
+  - ExcavCountText: {instanceID: 0}
+  - modeText: {instanceID: 0}
+  - resourcesCollected: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
